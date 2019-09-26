@@ -4,7 +4,7 @@
     w = 310, // canvas宽度
     h = 155, // canvas高度
     PI = Math.PI
-  const L = l + r * 2 // 滑块实际边长
+    const L = l + r * 2 // 滑块实际边长
 
   function getRandomNumberByRange(start, end) {
     return Math.round(Math.random() * (end - start) + start)

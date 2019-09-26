@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @WebServlet("/showCollectServlet")
-public class ShowCollectServlet extends HttpServlet {
+public class showCollectServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         BigDecimal showcol = new BigDecimal(request.getParameter("userid"));
         BlogCollectDao blogCollectDao = new BlogCollectDaoImpl();

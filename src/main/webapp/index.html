@@ -54,7 +54,7 @@
                 var password = $.md5(pass);
                 if(username!=""){
                     $.ajax({
-                            url: "/LoginServlet",
+                            url: "/WeBlog/LoginServlet",
                             type: "post",
                             dataType: "json",
                             data: {"userName": username, "userPass": password},
