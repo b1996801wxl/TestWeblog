@@ -7,7 +7,7 @@ public class ShowMyContent {
     private  String USER_NAME;
     private  String HEAD_IMG;
     private BigDecimal  BLOG_ID;
-    private BigDecimal USER_ID;
+    private Integer USER_ID;
     private String BLOG_TEXT;
     private String BLOG_IMG;
     private BigDecimal BLOG_FORWARD;
@@ -51,11 +51,11 @@ public class ShowMyContent {
         this.BLOG_ID = BLOG_ID;
     }
 
-    public BigDecimal getUSER_ID() {
+    public Integer getUSER_ID() {
         return USER_ID;
     }
 
-    public void setUSER_ID(BigDecimal USER_ID) {
+    public void setUSER_ID(Integer USER_ID) {
         this.USER_ID = USER_ID;
     }
 

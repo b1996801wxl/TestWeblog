@@ -23,7 +23,7 @@ public class HomeShowMyInfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             //Home个人信息卡返回个人 微博数---DJN
-            BigDecimal myuserid = new BigDecimal(request.getParameter("nowuserid"));
+        	BigDecimal myuserid = new BigDecimal(request.getParameter("nowuserid"));
             ShowMyContentDao showMyContent = new ShowMyContentDaoImpl();
 
             List<ShowMyContent> blogContents = showMyContent.ShowMyContent(myuserid);

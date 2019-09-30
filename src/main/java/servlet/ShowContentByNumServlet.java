@@ -21,14 +21,19 @@ import java.util.List;
 @WebServlet("/ShowContentByNumServlet")
 public class ShowContentByNumServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BigDecimal pagenum =new BigDecimal(request.getParameter("pagenum"));
+        BigDecimal pagenum =new BigDecimal(String.valueOf(request.getParameter("pagenum")));
         BigDecimal num = new BigDecimal("5");
         ShowBlogCententDao showBlogCentent = new ShowBlogCententDaoImpl();
-        List<BlogContentQuery> list = showBlogCentent.ShowContent(pagenum,num);
-        JsonConfig jsonConfig = new JsonConfig();
-        jsonConfig.registerJsonValueProcessor(Date.class,new JsonDateValueProcessor());
-        JSONArray array = JSONArray.fromObject(list,jsonConfig);
-        response.getWriter().print(array);
+        try {
+        	List<BlogContentQuery> list = showBlogCentent.ShowContent(pagenum,num);
+        	JsonConfig jsonConfig = new JsonConfig();
+        	jsonConfig.registerJsonValueProcessor(Date.class,new JsonDateValueProcessor());
+        	JSONArray array = JSONArray.fromObject(list,jsonConfig);
+        	response.getWriter().print(array);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

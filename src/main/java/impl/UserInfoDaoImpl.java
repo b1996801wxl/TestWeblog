@@ -17,7 +17,7 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
     }
 
     @Override
-    public List<UserInfo> showUserByUserID(BigDecimal USER_ID) {
+    public List<UserInfo> showUserByUserID(Integer USER_ID) {
         return executeQuery("select * from user_info where user_id=?", new Object[]{USER_ID});
     }
 
@@ -62,7 +62,7 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
     }
     @Override
     public int unlockUser(String username){
-        return executeUpdate("UPDATE USER_INFO SET LOCK_STATE=''WHERE USER_NAME = ? ",new Object[]{username});
+        return executeUpdate("UPDATE USER_INFO SET LOCK_STATE=NULL WHERE USER_NAME = ? ",new Object[]{username});
     }
 
   @Override

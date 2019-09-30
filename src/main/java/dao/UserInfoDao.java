@@ -10,7 +10,7 @@ public interface UserInfoDao {
    //查询用户的所有信息
    List<UserInfo> showAllUser1();
     List<UserInfo> showAllUser(BigDecimal USER_ID);
-    List<UserInfo> showUserByUserID(BigDecimal USER_ID);
+    List<UserInfo> showUserByUserID(Integer USER_ID);
    //更新个人信息
    int updataAllUser(UserInfo userInfo);
     List<UserInfo> FansQuery (BigDecimal USER_ID);

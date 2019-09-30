@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ShowMyContentDao {
     List<ShowMyContent> ShowMyContent(BigDecimal cnum);
-    List<ShowMyContent> ShowMyContentpage(BigDecimal userid);
+    List<ShowMyContent> ShowMyContentpage(Integer userid);
     List<ShowMyContent> FindHotTopic(String str);
 }

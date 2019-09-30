@@ -22,7 +22,7 @@ import java.util.List;
 public class UserInfoServlet extends HttpServlet {
     UserInfoDao dao = new UserInfoDaoImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BigDecimal user_id = new BigDecimal(request.getParameter("USER_ID"));
+    	Integer user_id = new Integer(request.getParameter("USER_ID"));
         //查询个人信息
         List<UserInfo> list = dao.showUserByUserID(user_id);
         JsonConfig jsonConfig = new JsonConfig();

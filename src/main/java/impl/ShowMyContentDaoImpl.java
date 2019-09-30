@@ -19,7 +19,7 @@ public class ShowMyContentDaoImpl extends BaseDao<ShowMyContent> implements Show
     }
 
     @Override
-    public List<ShowMyContent> ShowMyContentpage(BigDecimal userid) {
+    public List<ShowMyContent> ShowMyContentpage(Integer userid) {
         return null;
     }
 

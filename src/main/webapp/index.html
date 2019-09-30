@@ -54,13 +54,13 @@
                 var password = $.md5(pass);
                 if(username!=""){
                     $.ajax({
-                            url: "/WeBlog/LoginServlet",
+                            url: "/LoginServlet",
                             type: "post",
                             dataType: "json",
                             data: {"userName": username, "userPass": password},
                             success: function (result) {
                                 if (result!=null) {
-                                    if(result.LOCK_STATE!=null){
+                                    if(typeof result.LOCK_STATE !== "undefined" && result.LOCK_STATE !== null && result.LOCK_STATE !== ""){
                                         var lockdate=new Date(result.LOCK_STATE);
                                         var nowdate = new Date();
                                         var remiandate=lockdate.setDate(lockdate.getDate()+1)-(nowdate.getTime());
@@ -98,7 +98,7 @@
                                         window.location.href = 'home.html';
                                     }
                                 }
-                                else {layer.msg("账户或密码错误！", {time: 1000});
+                                else {layer.msg("您还未注册！", {time: 1000});
                                 }
                             }
                         }

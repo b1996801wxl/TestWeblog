@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,7 +22,7 @@ import java.util.Date;
 public class UpdateAllUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserInfoDao dao = new UserInfoDaoImpl();
-        BigDecimal user_id = new BigDecimal(request.getParameter("USER_ID"));
+        Integer user_id = new Integer(request.getParameter("USER_ID"));
         String USER_NAME = request.getParameter("USER_NAME");
         String PHONE_NO = request.getParameter("PHONE_NO");
         String TRUE_NAME = request.getParameter("TRUE_NAME");

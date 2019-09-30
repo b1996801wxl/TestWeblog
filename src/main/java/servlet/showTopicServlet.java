@@ -35,7 +35,10 @@ public class showTopicServlet extends HttpServlet {
             List<BlogContent>  blogtopics= blogContentDao.ShowContenttopic(rowmax,rowmin);
             JsonConfig jsonConfig = new JsonConfig();
             jsonConfig.registerJsonValueProcessor(Date.class,new JsonDateValueProcessor());
-            JSONArray array = JSONArray.fromObject(blogtopics,jsonConfig);
+            JSONArray array =null;
+            if(blogtopics!=null){
+            	array = JSONArray.fromObject(blogtopics,jsonConfig);
+            }
             PrintWriter out = response.getWriter();
             out.print(array);
             out.flush();

@@ -22,7 +22,7 @@ import java.util.List;
 public class ShowMyCollectNumServlet extends HttpServlet {
     //Home展示我的收藏数量---DJN
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BigDecimal userid = new BigDecimal(request.getParameter("nowuserid"));
+    	BigDecimal userid = new BigDecimal(request.getParameter("nowuserid").toString());
         ShowMyCollectNumDao showMyCollectNumDao = new ShowMyCollectNumDaoImpl();
         List<BlogCollect> blogCollects = showMyCollectNumDao.showmyCollectnum(userid);
         JsonConfig jsonConfig = new JsonConfig();

@@ -98,10 +98,9 @@
             });
         });
         //超级话题分页展示
-        $(document).ready(function () {
+       $(document).ready(function () {
             $(function () {
-                load();
-
+               // load();
                 function load() {
                     $.ajax({
                         url: "/showTopicServlet",
@@ -111,7 +110,7 @@
                         success: function (list1) {
                             if (list1.length == 0) {
                                 pagenu = 1;
-                                load();
+                               // load();
                             } else {
                                 for (var i = 0; i < list1.length; i++) {
                                     var $node = $('<a href="#"><li>' + list1[i].TOP + '</li><div>热度 ' + list1[i].NUMM + '亿</div></a>');
@@ -126,11 +125,11 @@
                 $(".home_refresh span").click(function () {
                     $(".home_topic").children().empty();
                     pagenu++
-                    load();
+                    //load();
                 });
             })
             //微博内容页个人信息卡 展示个人信息
-            $(function () {
+           $(function () {
                 $.ajax({
                     url: "/UserInfoServlet",
                     type: "post",
@@ -160,8 +159,12 @@
                         $(".home_my_background_img").html('<img style="cursor: pointer" class="hometoZone" src=' + info[0].HEAD_IMG + '>');
                     }
                 })
+                
+                
+                
+                
                 //展示个人关注数
-                $.ajax({
+               /*   $.ajax({
                     url: "/HomeShowMyAttenNumServlet",
                     type: "post",
                     data: {"nowuserid": homenowuser},
@@ -179,9 +182,10 @@
                     success: function (info) {
                         $(".one").eq(1).html(info[0].FNUM);
                     }
-                })
+                }) */
+                
                 //展示个人微博数
-                $.ajax({
+                /* $.ajax({
                     url: "/HomeShowMyInfoServlet",
                     type: "post",
                     data: {"nowuserid": homenowuser},
@@ -224,14 +228,18 @@
                             $('#home_blog_content_show').children().empty();
                         }
                     })
-                })
+                })  */
 
             })
+            
+            
+            
+            
             $('#header_111').load('daohang.html');
             $('.home_my_background_img').on("click", ".hometoZone", function () {
                 location.href = "myZone.html?userid=" + homenowuser;
             })
-        });
+        }); 
     </script>
 </head>
 <body>

@@ -34,7 +34,7 @@ public class BlogContentDaoImpl extends BaseDao<BlogContent> implements BlogCont
 
     @Override
     public List<BlogContent> ShowContenttopic(BigDecimal rowmax, BigDecimal rowmin) {
-        return executeQuery("select * from (select *from (select rownum as ron,NUM1 AS NUMM,TOPIC2 AS TOP from（select count(*) as num1,topic2 from(select nvl(substr(BLOG_TEXT, instr(BLOG_TEXT,'#',1), instr(BLOG_TEXT,'#',1,2) ),'null')as topic2 from BLOG_CONTENT)group by topic2 order by num1 desc） where TOPIC2 !='null') where ron <=?) where ron >?",new Object[]{rowmax,rowmin});
+        return executeQuery("SELECT * FROM(SELECT * FROM(SELECT (@rownum :=@rownum + 1) AS ron,NUM1 AS NUMM,TOPIC2 AS TOP from(select count(*) AS num1,topic2 FROM(SELECT IFNULL(SUBSTRING(BLOG_TEXT,INSTR(BLOG_TEXT,'#'),LOCATE('#', BLOG_TEXT, INSTR(BLOG_TEXT, '#'))),'null') AS topic2 FROM BLOG_CONTENT) as tab1 GROUP BY topic2 ORDER BY num1 desc) as tab2 WHERE TOPIC2 != 'null')as tab3 WHERE ron <=?)as tab4 WHERE ron >?",new Object[]{rowmax,rowmin});
     }
 
     @Override
